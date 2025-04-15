@@ -1,73 +1,106 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Task Management & Automation Platform
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 🚀 Overview
+This project is a **Task Management & Automation Platform** that starts as a simple CRUD-based task manager and gradually evolves into a **DevOps-integrated system** with real-time collaboration, background jobs, and CI/CD automation.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🌟 Features
+The project grows in **phases**, each introducing new complexity and requiring deeper backend knowledge.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### **Phase 1: Basic Task Management (CRUD)** ⭐ (Beginner)
+- User registration & authentication (JWT-based auth)
+- CRUD operations for tasks (Create, Read, Update, Delete)
+- PostgreSQL database managed through Prisma ORM
 
-## Installation
+### **Phase 2: User Roles & Access Control** ⭐⭐ (Junior Level)
+- Role-based authentication (Admin, Manager, User)
+- Permissions: Managers create tasks, Users complete them
 
-```bash
-$ yarn install
+### **Phase 3: Task Assignment & Notifications** ⭐⭐⭐ (Mid-Level)
+- Assign tasks to users
+- Send **email notifications** (e.g., AWS SES, Nodemailer)
+- Webhook integration for Slack alerts
+
+### **Phase 4: Background Jobs & Webhooks** ⭐⭐⭐⭐ (Senior Level)
+- **Task Scheduling:** Users can schedule tasks at specific times
+- **Event-Driven System:** Trigger webhooks on task status updates
+- **Redis Queue (BullMQ)** for handling background jobs
+
+### **Phase 5: Real-Time Features (WebSockets)** ⭐⭐⭐⭐ (Senior Level)
+- Implement **WebSockets** (Socket.io) for **live task updates**
+- **Live collaboration:** Users see task status updates in real time
+
+### **Phase 6: DevOps Automation & CI/CD** ⭐⭐⭐⭐⭐ (Expert Level)
+- Users create workflows that trigger **GitHub Actions / Jenkins pipelines**
+- Automate infrastructure provisioning (e.g., AWS EC2 instance creation)
+- Example: A task marked "Deploy" triggers a **Docker build**
+
+### **Phase 7: API Gateway & Rate Limiting** ⭐⭐⭐⭐⭐ (Expert Level)
+- Build an API Gateway for **external integrations**
+- Implement **rate limiting** (e.g., 100 API calls per minute per user)
+- Monitor API usage with **Prometheus + Grafana**
+
+---
+
+## 🛠 Tech Stack
+| **Layer**         | **Technology**  |
+|------------------|---------------|
+| **Backend**      | NestJS |
+| **Database**     | PostgreSQL (via Prisma ORM) |
+| **Authentication** | JWT, OAuth (Google, GitHub) |
+| **Task Scheduling** | BullMQ (Redis) |
+| **WebSockets** | Socket.io / WebPush |
+| **DevOps Automation** | GitHub Actions, AWS SDK, Terraform |
+| **Monitoring** | Prometheus, Grafana |
+| **API Gateway** | Kong / Custom NestJS Middleware |
+
+---
+
+## 📌 Installation & Setup
+### **Prerequisites**
+- Node.js installed
+- PostgreSQL & Redis installed and running
+
+### **Setup Instructions**
+```sh
+# Clone the repository
+git clone https://github.com/your-username/task-automation-platform.git
+cd task-automation-platform
+
+# Install dependencies
+npm install
+
+# Set environment variables
+cp .env.example .env
+
+# Run the server
+npm run start:dev
 ```
 
-## Running the app
+---
 
-```bash
-# development
-$ yarn run start
+## 📖 Roadmap
+1. **Setup authentication & task CRUD** ✅
+2. **Implement user roles & permissions** ✅
+3. **Add task assignment & notifications** ✅
+4. **Enable background jobs & webhooks** 🔜
+5. **Implement real-time collaboration** 🔜
+6. **Integrate DevOps automation** 🔜
+7. **Secure with API Gateway & Rate Limiting** 🔜
 
-# watch mode
-$ yarn run start:dev
+---
 
-# production mode
-$ yarn run start:prod
-```
+## 🤝 Contributing
+Contributions are welcome! Feel free to **fork** the repo and submit a **pull request**.
 
-## Test
+---
 
-```bash
-# unit tests
-$ yarn run test
+## 📜 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# e2e tests
-$ yarn run test:e2e
+---
 
-# test coverage
-$ yarn run test:cov
-```
+## 📧 Contact
+For inquiries, reach out via **your-email@example.com** or open an issue in the repo.
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
